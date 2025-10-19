@@ -1,0 +1,93 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLOCK50M'
+Slack : 16.720
+TNS   : 0.000
+
+Type  : Slow Model Setup 'CLOCK1K'
+Slack : 49982.650
+TNS   : 0.000
+
+Type  : Slow Model Setup 'CLOCK10K'
+Slack : 49991.020
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLOCK10K'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLOCK1K'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLOCK50M'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'CLOCK1K'
+Slack : 499996.528
+TNS   : 0.000
+
+Type  : Slow Model Removal 'CLOCK1K'
+Slack : 1.428
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK50M'
+Slack : 9.000
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK10K'
+Slack : 24999.000
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK1K'
+Slack : 249999.000
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLOCK50M'
+Slack : 18.501
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLOCK1K'
+Slack : 49989.317
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLOCK10K'
+Slack : 49993.844
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLOCK10K'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLOCK1K'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLOCK50M'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'CLOCK1K'
+Slack : 499998.211
+TNS   : 0.000
+
+Type  : Fast Model Removal 'CLOCK1K'
+Slack : 0.756
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK50M'
+Slack : 9.000
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK10K'
+Slack : 24999.000
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK1K'
+Slack : 249999.000
+TNS   : 0.000
+
+------------------------------------------------------------

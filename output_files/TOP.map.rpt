@@ -1,0 +1,694 @@
+Analysis & Synthesis report for TOP
+Thu Apr 10 04:12:50 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY1
+ 13. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY2
+ 14. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY3
+ 15. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW1
+ 16. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW2
+ 17. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW3
+ 18. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW4
+ 19. Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW5
+ 20. Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY
+ 21. Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR
+ 22. Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN
+ 23. Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:USEC
+ 24. Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY
+ 25. Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR
+ 26. Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWMIN
+ 27. Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWSEC
+ 28. Parameter Settings for User Entity Instance: KNOCK_LED_ALARM:UALARM
+ 29. Parameter Settings for User Entity Instance: FIRE_ALARM:UFIRE_ALARM
+ 30. Port Connectivity Checks: "STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY"
+ 31. Port Connectivity Checks: "DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY"
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Apr 10 04:12:50 2025           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; TOP                                             ;
+; Top-level Entity Name              ; TOP                                             ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 779                                             ;
+;     Total combinational functions  ; 762                                             ;
+;     Dedicated logic registers      ; 326                                             ;
+; Total registers                    ; 326                                             ;
+; Total pins                         ; 89                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; TOP                ; TOP                ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
+; rtlconst/TOP.v                   ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/TOP.v             ;         ;
+; rtlconst/SW_BCDCNTR.v            ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/SW_BCDCNTR.v      ;         ;
+; rtlconst/STOPWATCH.v             ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/STOPWATCH.v       ;         ;
+; rtlconst/ROT_PWMGEN.v            ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/ROT_PWMGEN.v      ;         ;
+; rtlconst/MANSET.v                ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/MANSET.v          ;         ;
+; rtlconst/KNOCK_LED_ALARM.v       ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/KNOCK_LED_ALARM.v ;         ;
+; rtlconst/KNOCK_LED.v             ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/KNOCK_LED.v       ;         ;
+; rtlconst/GENCLK10K.v             ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/GENCLK10K.v       ;         ;
+; rtlconst/GENCLK1K.v              ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/GENCLK1K.v        ;         ;
+; rtlconst/FIRE_DETECT.v           ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/FIRE_DETECT.v     ;         ;
+; rtlconst/FIRE_ALARM.v            ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/FIRE_ALARM.v      ;         ;
+; rtlconst/DISPLAY7SEG.v           ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/DISPLAY7SEG.v     ;         ;
+; rtlconst/DIGITCLOCK.v            ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/DIGITCLOCK.v      ;         ;
+; rtlconst/DEBOUNCE.v              ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/DEBOUNCE.v        ;         ;
+; rtlconst/BCDCNTR.v               ; yes             ; User Verilog HDL File  ; C:/altera/proj/Quartus_PROJ1_TEAM2/rtlconst/BCDCNTR.v         ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 779                      ;
+;                                             ;                          ;
+; Total combinational functions               ; 762                      ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 365                      ;
+;     -- 3 input functions                    ; 179                      ;
+;     -- <=2 input functions                  ; 218                      ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 615                      ;
+;     -- arithmetic mode                      ; 147                      ;
+;                                             ;                          ;
+; Total registers                             ; 326                      ;
+;     -- Dedicated logic registers            ; 326                      ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 89                       ;
+; Embedded Multiplier 9-bit elements          ; 0                        ;
+; Maximum fan-out node                        ; GENCLK1K:UGENCLK1K|CLK1K ;
+; Maximum fan-out                             ; 281                      ;
+; Total fan-out                               ; 3730                     ;
+; Average fan-out                             ; 3.17                     ;
++---------------------------------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; |TOP                          ; 762 (1)           ; 326 (0)      ; 0           ; 0            ; 0       ; 0         ; 89   ; 0            ; |TOP                                        ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_KEY1|  ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_KEY1                ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_KEY2|  ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_KEY2                ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_KEY3|  ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_KEY3                ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_SW1|   ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_SW1                 ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_SW2|   ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_SW2                 ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_SW3|   ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_SW3                 ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_SW4|   ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_SW4                 ; work         ;
+;    |DEBOUNCE:UDEBOUNCE_SW5|   ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DEBOUNCE:UDEBOUNCE_SW5                 ; work         ;
+;    |DIGITCLOCK:UDIGITCLOCK|   ; 127 (44)          ; 46 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DIGITCLOCK:UDIGITCLOCK                 ; work         ;
+;       |BCDCNTR:UDAY|          ; 21 (21)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY    ; work         ;
+;       |BCDCNTR:UHOUR|         ; 24 (24)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR   ; work         ;
+;       |BCDCNTR:UMIN|          ; 19 (19)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN    ; work         ;
+;       |BCDCNTR:USEC|          ; 19 (19)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:USEC    ; work         ;
+;    |DISPLAY7SEG:ULDAY7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:ULDAY7SEG                  ; work         ;
+;    |DISPLAY7SEG:ULHOUR7SEG|   ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:ULHOUR7SEG                 ; work         ;
+;    |DISPLAY7SEG:ULMIN7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:ULMIN7SEG                  ; work         ;
+;    |DISPLAY7SEG:ULSEC7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:ULSEC7SEG                  ; work         ;
+;    |DISPLAY7SEG:URDAY7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:URDAY7SEG                  ; work         ;
+;    |DISPLAY7SEG:URHOUR7SEG|   ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:URHOUR7SEG                 ; work         ;
+;    |DISPLAY7SEG:URMIN7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:URMIN7SEG                  ; work         ;
+;    |DISPLAY7SEG:URSEC7SEG|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|DISPLAY7SEG:URSEC7SEG                  ; work         ;
+;    |FIRE_ALARM:UFIRE_ALARM|   ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|FIRE_ALARM:UFIRE_ALARM                 ; work         ;
+;    |FIRE_DETECT:UFIRE_DETECT| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|FIRE_DETECT:UFIRE_DETECT               ; work         ;
+;    |GENCLK10K:UGENCLK10K|     ; 22 (22)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|GENCLK10K:UGENCLK10K                   ; work         ;
+;    |GENCLK1K:UGENCLK1K|       ; 26 (26)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|GENCLK1K:UGENCLK1K                     ; work         ;
+;    |KNOCK_LED:UKNOCK|         ; 76 (76)           ; 44 (44)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|KNOCK_LED:UKNOCK                       ; work         ;
+;    |KNOCK_LED_ALARM:UALARM|   ; 42 (42)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|KNOCK_LED_ALARM:UALARM                 ; work         ;
+;    |MANSET:UMANSET|           ; 138 (138)         ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|MANSET:UMANSET                         ; work         ;
+;    |ROT_PWMGEN:UROT_PWMGEN|   ; 43 (43)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|ROT_PWMGEN:UROT_PWMGEN                 ; work         ;
+;    |STOPWATCH:USTOPWATCH|     ; 76 (20)           ; 49 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|STOPWATCH:USTOPWATCH                   ; work         ;
+;       |SW_BCDCNTR:SWDAY|      ; 14 (14)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY  ; work         ;
+;       |SW_BCDCNTR:SWHOUR|     ; 16 (16)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR ; work         ;
+;       |SW_BCDCNTR:SWMIN|      ; 13 (13)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWMIN  ; work         ;
+;       |SW_BCDCNTR:SWSEC|      ; 13 (13)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWSEC  ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++----------------------------------------+--------------------------------------------------+
+; Register name                          ; Reason for Removal                               ;
++----------------------------------------+--------------------------------------------------+
+; KNOCK_LED_ALARM:UALARM|CLK500          ; Merged with FIRE_ALARM:UFIRE_ALARM|CLK500        ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[1,2] ; Merged with ROT_PWMGEN:UROT_PWMGEN|brightness[0] ;
+; Total Number of Removed Registers = 3  ;                                                  ;
++----------------------------------------+--------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 326   ;
+; Number of registers using Synchronous Clear  ; 48    ;
+; Number of registers using Synchronous Load   ; 34    ;
+; Number of registers using Asynchronous Clear ; 324   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 162   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; ROT_PWMGEN:UROT_PWMGEN|PWM_ACT             ; 57      ;
+; DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY|BCD[0] ; 7       ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[7]       ; 6       ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[6]       ; 6       ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[5]       ; 6       ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[4]       ; 5       ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[3]       ; 10      ;
+; ROT_PWMGEN:UROT_PWMGEN|brightness[0]       ; 5       ;
+; MANSET:UMANSET|DAY_SET[0]                  ; 9       ;
+; GENCLK10K:UGENCLK10K|CNT[0]                ; 2       ;
+; STOPWATCH:USTOPWATCH|KEY3_SYNC[1]          ; 2       ;
+; STOPWATCH:USTOPWATCH|KEY3_SYNC[0]          ; 3       ;
+; MANSET:UMANSET|KEY2_SYNC[0]                ; 9       ;
+; MANSET:UMANSET|KEY2_SYNC[1]                ; 8       ;
+; MANSET:UMANSET|KEY1_SYNC[0]                ; 4       ;
+; MANSET:UMANSET|KEY1_SYNC[1]                ; 3       ;
+; MANSET:UMANSET|KEY3_SYNC[1]                ; 5       ;
+; MANSET:UMANSET|KEY3_SYNC[0]                ; 6       ;
+; DEBOUNCE:UDEBOUNCE_KEY3|KEY_OUT            ; 3       ;
+; DEBOUNCE:UDEBOUNCE_KEY2|KEY_OUT            ; 2       ;
+; DEBOUNCE:UDEBOUNCE_KEY1|KEY_OUT            ; 2       ;
+; KNOCK_LED:UKNOCK|KNOCK_D                   ; 1       ;
+; DEBOUNCE:UDEBOUNCE_KEY3|PREV_KEY_IN        ; 2       ;
+; DEBOUNCE:UDEBOUNCE_KEY2|PREV_KEY_IN        ; 2       ;
+; DEBOUNCE:UDEBOUNCE_KEY1|PREV_KEY_IN        ; 2       ;
+; Total number of inverted registers = 25    ;         ;
++--------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWSEC|BCD[6]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWMIN|BCD[4]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:USEC|BCD[2]    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN|BCD[3]    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR|BCD[6] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR|BCD[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY|BCD[4]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY|BCD[2]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP|MANSET:UMANSET|SEL[0]                         ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|CNT[4]                 ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP|STOPWATCH:USTOPWATCH|CNT[4]                   ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP|KNOCK_LED:UKNOCK|ONE_SEC_CNT[9]               ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:USEC|BCD[7]    ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN|BCD[5]    ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |TOP|KNOCK_LED_ALARM:UALARM|ALARM_DONE[1]          ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP|FIRE_ALARM:UFIRE_ALARM|BEEP_CNT[6]            ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR|BCD[5]   ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR|BCD[1]   ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY|BCD[7]    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP|DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY|BCD[3]    ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TOP|KNOCK_LED:UKNOCK|SEC_CNT[0]                   ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |TOP|KNOCK_LED_ALARM:UALARM|BEEP_CNT1[4]           ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP|KNOCK_LED_ALARM:UALARM|BEEP_CNT2[8]           ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TOP|MANSET:UMANSET|SEC_SET[1]                     ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TOP|MANSET:UMANSET|MIN_SET[3]                     ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 5 LEs                ; 20 LEs                 ; Yes        ; |TOP|KNOCK_LED:UKNOCK|MIN_REMAIN[3]                ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |TOP|MANSET:UMANSET|SEC_SET[6]                     ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |TOP|MANSET:UMANSET|MIN_SET[5]                     ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |TOP|MANSET:UMANSET|HOUR_SET[5]                    ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP|MANSET:UMANSET|HOUR_SET[1]                    ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; Yes        ; |TOP|MANSET:UMANSET|DAY_SET[7]                     ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |TOP|MANSET:UMANSET|DAY_SET[2]                     ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |TOP|ROT_PWMGEN:UROT_PWMGEN|brightness[7]          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:URSEC7SEG|Mux3                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:ULSEC7SEG|Mux3                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:URMIN7SEG|Mux3                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:ULMIN7SEG|Mux6                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:URHOUR7SEG|Mux6                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:ULHOUR7SEG|Mux3                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:URDAY7SEG|Mux6                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|DISPLAY7SEG:ULDAY7SEG|Mux6                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |TOP|KNOCK_LED:UKNOCK|ShiftLeft0                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |TOP|KNOCK_LED:UKNOCK|ShiftLeft0                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY1 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; SET            ; 1     ; Unsigned Binary                             ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; SET            ; 1     ; Unsigned Binary                             ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_KEY3 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; SET            ; 1     ; Unsigned Binary                             ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW1 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; SET            ; 0     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW2 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; SET            ; 0     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW3 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; SET            ; 0     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW4 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; SET            ; 0     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DEBOUNCE:UDEBOUNCE_SW5 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; SET            ; 0     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; MAXL           ; 0011  ; Unsigned Binary                                         ;
+; MAXR           ; 0001  ; Unsigned Binary                                         ;
+; SETL           ; 0000  ; Unsigned Binary                                         ;
+; SETR           ; 0001  ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; MAXL           ; 0010  ; Unsigned Binary                                          ;
+; MAXR           ; 0011  ; Unsigned Binary                                          ;
+; SETL           ; 0000  ; Unsigned Binary                                          ;
+; SETR           ; 0000  ; Unsigned Binary                                          ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; MAXL           ; 0101  ; Unsigned Binary                                         ;
+; MAXR           ; 1001  ; Unsigned Binary                                         ;
+; SETL           ; 0000  ; Unsigned Binary                                         ;
+; SETR           ; 0000  ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DIGITCLOCK:UDIGITCLOCK|BCDCNTR:USEC ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; MAXL           ; 0101  ; Unsigned Binary                                         ;
+; MAXR           ; 1001  ; Unsigned Binary                                         ;
+; SETL           ; 0000  ; Unsigned Binary                                         ;
+; SETR           ; 0000  ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; MAXL           ; 0011  ; Unsigned Binary                                           ;
+; MAXR           ; 0001  ; Unsigned Binary                                           ;
+; SETL           ; 0000  ; Unsigned Binary                                           ;
+; SETR           ; 0000  ; Unsigned Binary                                           ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; MAXL           ; 0010  ; Unsigned Binary                                            ;
+; MAXR           ; 0011  ; Unsigned Binary                                            ;
+; SETL           ; 0000  ; Unsigned Binary                                            ;
+; SETR           ; 0000  ; Unsigned Binary                                            ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWMIN ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; MAXL           ; 0101  ; Unsigned Binary                                           ;
+; MAXR           ; 1001  ; Unsigned Binary                                           ;
+; SETL           ; 0000  ; Unsigned Binary                                           ;
+; SETR           ; 0000  ; Unsigned Binary                                           ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWSEC ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; MAXL           ; 0101  ; Unsigned Binary                                           ;
+; MAXR           ; 1001  ; Unsigned Binary                                           ;
+; SETL           ; 0000  ; Unsigned Binary                                           ;
+; SETR           ; 0000  ; Unsigned Binary                                           ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KNOCK_LED_ALARM:UALARM ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; IDLE           ; 0     ; Unsigned Binary                            ;
+; BUZ            ; 1     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIRE_ALARM:UFIRE_ALARM ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; IDLE           ; 0     ; Unsigned Binary                            ;
+; BUZ            ; 1     ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY"                                               ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; CARRY ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY"                                                 ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; CARRY ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Apr 10 04:12:49 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TOP -c TOP
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/top.v
+    Info (12023): Found entity 1: TOP
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/sw_bcdcntr.v
+    Info (12023): Found entity 1: SW_BCDCNTR
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/stopwatch.v
+    Info (12023): Found entity 1: STOPWATCH
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/rot_pwmgen.v
+    Info (12023): Found entity 1: ROT_PWMGEN
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/manset.v
+    Info (12023): Found entity 1: MANSET
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/knock_led_alarm.v
+    Info (12023): Found entity 1: KNOCK_LED_ALARM
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/knock_led.v
+    Info (12023): Found entity 1: KNOCK_LED
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/genclk10k.v
+    Info (12023): Found entity 1: GENCLK10K
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/genclk1k.v
+    Info (12023): Found entity 1: GENCLK1K
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/fire_detect.v
+    Info (12023): Found entity 1: FIRE_DETECT
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/fire_alarm.v
+    Info (12023): Found entity 1: FIRE_ALARM
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/display7seg.v
+    Info (12023): Found entity 1: DISPLAY7SEG
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/digitclock.v
+    Info (12023): Found entity 1: DIGITCLOCK
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/debounce.v
+    Info (12023): Found entity 1: DEBOUNCE
+Info (12021): Found 1 design units, including 1 entities, in source file rtlconst/bcdcntr.v
+    Info (12023): Found entity 1: BCDCNTR
+Info (12127): Elaborating entity "TOP" for the top level hierarchy
+Info (12128): Elaborating entity "GENCLK1K" for hierarchy "GENCLK1K:UGENCLK1K"
+Info (12128): Elaborating entity "GENCLK10K" for hierarchy "GENCLK10K:UGENCLK10K"
+Info (12128): Elaborating entity "DEBOUNCE" for hierarchy "DEBOUNCE:UDEBOUNCE_KEY1"
+Info (12128): Elaborating entity "DEBOUNCE" for hierarchy "DEBOUNCE:UDEBOUNCE_SW1"
+Info (12128): Elaborating entity "DIGITCLOCK" for hierarchy "DIGITCLOCK:UDIGITCLOCK"
+Info (12128): Elaborating entity "BCDCNTR" for hierarchy "DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UDAY"
+Info (12128): Elaborating entity "BCDCNTR" for hierarchy "DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UHOUR"
+Info (12128): Elaborating entity "BCDCNTR" for hierarchy "DIGITCLOCK:UDIGITCLOCK|BCDCNTR:UMIN"
+Info (12128): Elaborating entity "DISPLAY7SEG" for hierarchy "DISPLAY7SEG:URSEC7SEG"
+Info (12128): Elaborating entity "MANSET" for hierarchy "MANSET:UMANSET"
+Info (12128): Elaborating entity "STOPWATCH" for hierarchy "STOPWATCH:USTOPWATCH"
+Info (12128): Elaborating entity "SW_BCDCNTR" for hierarchy "STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWDAY"
+Info (12128): Elaborating entity "SW_BCDCNTR" for hierarchy "STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWHOUR"
+Info (12128): Elaborating entity "SW_BCDCNTR" for hierarchy "STOPWATCH:USTOPWATCH|SW_BCDCNTR:SWMIN"
+Info (12128): Elaborating entity "KNOCK_LED_ALARM" for hierarchy "KNOCK_LED_ALARM:UALARM"
+Info (12128): Elaborating entity "KNOCK_LED" for hierarchy "KNOCK_LED:UKNOCK"
+Info (12128): Elaborating entity "FIRE_DETECT" for hierarchy "FIRE_DETECT:UFIRE_DETECT"
+Info (12128): Elaborating entity "FIRE_ALARM" for hierarchy "FIRE_ALARM:UFIRE_ALARM"
+Info (12128): Elaborating entity "ROT_PWMGEN" for hierarchy "ROT_PWMGEN:UROT_PWMGEN"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 874 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 75 output pins
+    Info (21061): Implemented 785 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4603 megabytes
+    Info: Processing ended: Thu Apr 10 04:12:50 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
