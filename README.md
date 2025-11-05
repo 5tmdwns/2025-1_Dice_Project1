@@ -3,24 +3,47 @@
 </p>
 
 ## Index ⭐
- - [1. 기본 기능](#1-기본-기능)
-   - [1-1. 전체 블록 다이어그램](#1-1-전체-블록-다이어그램)
-   - [1-2. Display Format - 7 Segment](#1-2-Display-Format---7-Segment)
-   - [1-3. X100 Faster Debug](#1-3-X100-Faster-Debug)
-   - [1-4. Digitclock](#1-4-Digitclock)
-   - [1-5. Manual Clock Setting](#1-5-Manual-Clock-Setting)
-   - [1-6. Stopwatch](#1-6-Stopwatch)
-   - [1-7. Debounce](#1-7-Debounce)
- - [2. 추가 기능](#2-추가-기능)
-   - [2-1. 밝기 조절](#2-1-밝기-조절)
-   - [2-2. 노크 알람](#2-2-노크-알람)
-   - [2-3. 화재 경보](#2-3-화재-경보)
- - [3. Utility](#3-utility)
-   - [3-1. 면적 감소 아이디어](#3-1-면적-감소-아이다어)
-   - [3-2. Utility 분석](#3-2-utility-분석)
+ - [1. Spec](#1-spec)
+ - [2. 기본 기능](#2-기본-기능)
+   - [2-1. 전체 블록 다이어그램](#2-1-전체-블록-다이어그램)
+   - [2-2. Display Format - 7 Segment](#2-2-Display-Format---7-Segment)
+   - [2-3. X100 Faster Debug](#2-3-X100-Faster-Debug)
+   - [2-4. Digitclock](#2-4-Digitclock)
+   - [2-5. Manual Clock Setting](#2-5-Manual-Clock-Setting)
+   - [2-6. Stopwatch](#2-6-Stopwatch)
+   - [2-7. Debounce](#2-7-Debounce)
+ - [3. 추가 기능](#3-추가-기능)
+   - [3-1. 밝기 조절](#3-1-밝기-조절)
+   - [3-2. 노크 알람](#3-2-노크-알람)
+   - [3-3. 화재 경보](#3-3-화재-경보)
+ - [4. Utility](#4-utility)
+   - [4-1. 면적 감소 아이디어](#4-1-면적-감소-아이다어)
+   - [4-2. Utility 결과](#4-2-utility-결과)
 
-## 1. 기본 기능
-### 1-1. 전체 블록 다이어그램
+## 1. Spec
+- 8개의 7SEGs - 날짜 (31일 고정!) - 시간 (24시간) - 분 - 초 형식.
+- 디버깅을 위한 100배 가속 기능.
+- 50MHz 레퍼런스 Clock 사용 -> Generate 1kHz -> 1kHz 기준으로 적용.
+- Asynchronous Reset negative (SW0)
+- Manual Timing Setting
+  - 해당 모드 진입 (SW1 On), KEY3 누를 시, 초 -> 분 -> 시간 -> 날짜 -> 초 순서로 이동.
+  - KEY2는 1씩 증가, KEY1은 1씩 감소.
+  - SW1 Off 시, 표시되던 7SEGs가 업데이트 되어서 정상 Digital Clock이 표시 되어야 함.
+- Stop Watch
+  - 해당 모드 진입 (SW2 On), KEY3 누르면 시작, 다시 KEY3 누르면 정지, SW Off 시 Reset.
+  - 이 기능은 Main Clock에 영향을 주면 안됨. 즉, Stop Watch Mode 일 때, Digital Clock은 동작 중이어야 함.
+ 
+### Additional Spec
+- 센서를 활용한 3개의 추가 기능
+- Pomodoro 금지!
+
+### Score (80%(기능), 20%(발표))
+- 기능 : 각 기능 (20pt), 각 추가 기능 (5pt)
+- 발표 : Block Diagram + Utility + 3 Additional Specs. (15pt) + 10분 제한 (5pt)
+- Utility : 추가 기능 포함 (5pt)
+ 
+## 2. 기본 기능
+### 2-1. 전체 블록 다이어그램
 <p align="center">
   <img width="100%" alt="전체 블록 다이어그램" src="https://github.com/user-attachments/assets/5223b592-d450-4de8-b754-51a52c98dad2" />
 </p>
@@ -66,7 +89,7 @@ endmodule
   </tr>
 </table>
 
-### 1-3. X100 Fast Debug
+### 2-3. X100 Fast Debug
 
 <table>
   <tr>
@@ -91,7 +114,7 @@ endmodule
   </tr>
 </table>
 
-### 1-4. Digitclock
+### 2-4. Digitclock
 
 ``` verilog
 //...
@@ -169,7 +192,7 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, parameter SETL = 
   <img width="100%" alt="Digitclock Schematic" src="https://github.com/user-attachments/assets/e34a9f32-4285-438a-8d36-862e1773389e" />
 </p>
 
-## 1-5. Manual Clock Setting
+## 2-5. Manual Clock Setting
 
 <table>
   <tr>
@@ -219,7 +242,7 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
   </tr>
 </table>
 
-### 1-6. Stopwatch
+### 2-6. Stopwatch
 
 <table>
   <tr>
@@ -250,7 +273,7 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
   </tr>
 </table>
 
-### 1-7. Debounce
+### 2-7. Debounce
 <table>
   <tr>
     <td rowspan="2" align="center" width="40%">
@@ -269,8 +292,8 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
   </tr>
 </table>
 
-## 2. 추가 기능
-### 2-1. 밝기 조절
+## 3. 추가 기능
+### 3-1. 밝기 조절
 <table align="center">
   <tr>
     <td align="center" width="40%"><img width="60%" alt="Rotary Encoder" src="https://github.com/user-attachments/assets/9cf09677-178b-4f5e-8f36-d0a06b24d7c9" /></td>
@@ -316,7 +339,7 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
 //...
 ```
 
-### 2-2. 노크 알람
+### 3-2. 노크 알람
 <table align="center">
   <tr>
     <td align="center" width="40%"><img width="60%" alt="Knock" src="https://github.com/user-attachments/assets/f4a3f415-cacd-4fb4-bd24-aa523cdfd79c" /></td>
@@ -360,7 +383,7 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
   </tr>
 </table>
 
-### 2-3. 화재 경보
+### 3-3. 화재 경보
 <table align="center">
   <tr>
     <td align="center" width="40%"><img width="100%" alt="Fire" src="https://github.com/user-attachments/assets/403a1c5f-89ae-4dce-b248-40d6fea404aa" /></td>
@@ -382,8 +405,8 @@ module BCDCNTR #(parameter MAXL = 4'h5, parameter MAXR = 4'h9, ...
 - 화재가 감지되면 Knock 신호가 들어올 때까지 부저가 울림
 - 화재 경보 모듈은 노크 알람 모듈보다 우선 순위
 
-## 3. Utility
-### 3-1. 면적 감소 아이디어
+## 4. Utility
+### 4-1. 면적 감소 아이디어
 #### 모듈 재사용(Modular Reuse)
 - 동일한 기능을 수행하는 하위 모듈 (`DISPLAY7SEG`, `DEBOUNCE`, `BCDCNTR`) 등을 파라미터나 입력에 따라 여러 인스턴스에서 재활용.(로직 복잡도를 줄이고 합성 시 회로 최적화를 유도.)
 - `SEGx` 출력도 하나의 `DISPLAY7SEG` 디코더 로직을 재사용, 복잡한 디코딩 로직 없이 단일 자릿수 변환만 수행할 수 있게 함.
@@ -443,7 +466,7 @@ always @(*) begin
 end
 ```
 
-#### Utility 분석
+### 4-2. Utility 결과
 <table align="center">
   <tr>
     <td align="center" width="70%"><img width="100%" alt="Utility Result" src="https://github.com/user-attachments/assets/aaec924b-6e62-49fa-a33c-dd1d1f78c53d" /></td>
