@@ -24,13 +24,13 @@
 - 8개의 7SEGs - 날짜 (31일 고정!) - 시간 (24시간) - 분 - 초 형식
 - 디버깅을 위한 100배 가속 기능
 - 50MHz 레퍼런스 Clock 사용 -> Generate 1kHz -> 1kHz 기준으로 적용
-- Asynchronous Reset negative (SW0)
+- Asynchronous Reset negative (`SW0`)
 - Manual Timing Setting
-  - 해당 모드 진입 (SW1 On), KEY3 누를 시, 초 -> 분 -> 시간 -> 날짜 -> 초 순서로 이동
-  - KEY2는 1씩 증가, KEY1은 1씩 감소
-  - SW1 Off 시, 표시되던 7SEGs가 업데이트 되어서 정상 Digital Clock이 표시 되어야 함.
+  - 해당 모드 진입 (`SW1` On), KEY3 누를 시, 초 -> 분 -> 시간 -> 날짜 -> 초 순서로 이동
+  - `KEY2`는 1씩 증가, `KEY1`은 1씩 감소
+  - `SW1` Off 시, 표시되던 7SEGs가 업데이트 되어서 정상 Digital Clock이 표시 되어야 함.
 - Stop Watch
-  - 해당 모드 진입 (SW2 On), KEY3 누르면 시작, 다시 KEY3 누르면 정지, SW Off 시 Reset.
+  - 해당 모드 진입 (`SW2` On), KEY3 누르면 시작, 다시 `KEY3` 누르면 정지, `SW2` Off 시 Reset.
   - 이 기능은 Main Clock에 영향을 주면 안됨. 즉, Stop Watch Mode 일 때, Digital Clock은 동작 중이어야 함.
  
 ### Additional Spec
